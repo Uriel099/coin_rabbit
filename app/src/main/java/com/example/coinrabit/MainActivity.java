@@ -1,16 +1,15 @@
 package com.example.coinrabit;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -32,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         clickNum++;
         tv_label.setText("You have clicked the button "+clickNum+" times!");
         Map<String, Object> user = new HashMap<>();
-        user.put("first", "Ada");
-        user.put("last", "Lovelace");
-        user.put("born", 1815);
+        user.put("first", "Jorgito");
+        user.put("last", "Aguilar");
+        user.put("born", 2018);
         // Add a new document with a generated ID
         fb.collection("users")
                 .add(user)
