@@ -54,11 +54,10 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        //photoImageView = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imageView_navheader);
-        //nameTextView = (TextView) navigationView.getHeaderView(0).findViewById(R.id.name_navheader);
-        //emailTextView =  findViewById(R.id.tv_navheader);
-        //idTextView =  findViewById(R.id.tv_id_navheader);
+
+
+
+
 
                         super.onCreate(savedInstanceState);
                         setContentView(R.layout.activity_menu_drawer);
@@ -73,6 +72,9 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
                         });
                         DrawerLayout drawer = findViewById(R.id.drawer_layout);
                         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+                        photoImageView = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imageView_navheader);
+                        nameTextView = (TextView) navigationView.getHeaderView(0).findViewById(R.id.name_navheader);
+                        emailTextView =  (TextView) navigationView.getHeaderView(0).findViewById(R.id.tv_navheader);
                         // Passing each menu ID as a set of Ids because each
                         // menu should be considered as top level destinations.
                         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -152,12 +154,10 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
                     }
                 });
         System.out.println(user.getDisplayName());
-        //nameTextView.setText(user.getDisplayName());
-        //Glide.with(this).load(user.getPhotoUrl()).into(photoImageView);
-        /*
+        nameTextView.setText(user.getDisplayName());
+        Glide.with(this.getApplicationContext()).load(user.getPhotoUrl()).into(photoImageView);
         emailTextView.setText(user.getEmail());
-        idTextView.setText(user.getUid());
-        */
+
 
     }
 
