@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tv_label = findViewById(R.id.lb_clickB);
+        //tv_label = findViewById(R.id.lb_clickB);
     }
 
     public void Click(View v){
