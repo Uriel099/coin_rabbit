@@ -10,4 +10,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="GreenMoney">#03532A</color>
+    <color name="GreenMon">#015C22</color>
+    <color name="g">#51B85C</color>
 </resources>
