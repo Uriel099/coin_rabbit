@@ -50,6 +50,7 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     private AppBarConfiguration mAppBarConfiguration;
+    Charts chart = new Charts();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,7 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
                         photoImageView = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imageView_navheader);
                         nameTextView = (TextView) navigationView.getHeaderView(0).findViewById(R.id.name_navheader);
                         emailTextView =  (TextView) navigationView.getHeaderView(0).findViewById(R.id.tv_navheader);
+
                         // Passing each menu ID as a set of Ids because each
                         // menu should be considered as top level destinations.
                         mAppBarConfiguration = new AppBarConfiguration.Builder(

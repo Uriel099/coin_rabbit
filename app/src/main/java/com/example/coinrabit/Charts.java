@@ -1,10 +1,6 @@
 package com.example.coinrabit;
 
 import android.graphics.Color;
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -21,7 +17,7 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.util.ArrayList;
 
-public class chartActiviy extends AppCompatActivity {
+public class Charts {
     private PieChart pieChart;
     private BarChart barChart;
     private String[] months=new String[]{"Ingresos","Egresos"};
@@ -30,14 +26,47 @@ public class chartActiviy extends AppCompatActivity {
 
 
 
+    public Charts() {
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chart_activiy);
-        //barChart=(BarChart)findViewById(R.id.barChart);
-        pieChart=(PieChart)findViewById(R.id.pieChartLayout);
-        createCharts();
+    public PieChart getPieChart() {
+        return pieChart;
+    }
+
+    public void setPieChart(PieChart pieChart) {
+        this.pieChart = pieChart;
+    }
+
+    public BarChart getBarChart() {
+        return barChart;
+    }
+
+    public void setBarChart(BarChart barChart) {
+        this.barChart = barChart;
+    }
+
+    public String[] getMonths() {
+        return months;
+    }
+
+    public void setMonths(String[] months) {
+        this.months = months;
+    }
+
+    public int[] getSale() {
+        return sale;
+    }
+
+    public void setSale(int[] sale) {
+        this.sale = sale;
+    }
+
+    public int[] getColors() {
+        return colors;
+    }
+
+    public void setColors(int[] colors) {
+        this.colors = colors;
     }
 
     private Chart getSameChart(Chart chart, String description, int textColor, int background, int animateTime){
@@ -59,7 +88,7 @@ public class chartActiviy extends AppCompatActivity {
         Legend legend=chart.getLegend();
         legend.setForm(Legend.LegendForm.CIRCLE);
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
-        ArrayList<LegendEntry>entries=new ArrayList<>();
+        ArrayList<LegendEntry> entries=new ArrayList<>();
         for(int i=0;i< months.length;i++){
             LegendEntry entry=new LegendEntry();
             entry.formColor=colors[i];
@@ -99,14 +128,6 @@ public class chartActiviy extends AppCompatActivity {
     }*/
 
     public void createCharts(){
-       //barChart=(BarChart)getSameChart(barChart,"Ventas",Color.RED,Color.WHITE,3000);
-        //barChart.setDrawGridBackground(true);
-        //barChart.setDrawBarShadow(true);
-        //barChart.setData(getBarData());
-        //barChart.invalidate();
-        //axisX(barChart.getXAxis());
-        //axisLeft(barChart.getAxisLeft());
-        //axisRight(barChart.getAxisRight());
         pieChart=(PieChart)getSameChart(pieChart,"Ventas",Color.GRAY,Color.WHITE,3000);
         pieChart.setHoleRadius(10);
         pieChart.setDrawHoleEnabled(false);
@@ -138,3 +159,4 @@ public class chartActiviy extends AppCompatActivity {
         return pd;
     }
 }
+
