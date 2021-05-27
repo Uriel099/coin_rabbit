@@ -5,14 +5,19 @@ public class ListElement {
     public String concepto;
     public String fecha;
     public String monto;
-    public String color;
+    public String colorMonto;
+    public String colorIcono;
+    public int icono;
 
-    public ListElement(String tipo, String concepto, String fecha, String monto, String color) {
+
+    public ListElement(String tipo, String concepto, String fecha, String monto, String colorMonto, String colorIcono, int icono) {
         this.tipo = tipo;
         this.concepto = concepto;
         this.fecha = fecha;
         this.monto = monto;
-        this.color = color;
+        this.colorMonto = colorMonto;
+        this.colorIcono = colorIcono;
+        this.icono = icono;
     }
 
     public String getTipo() {
@@ -47,11 +52,27 @@ public class ListElement {
         this.monto = monto;
     }
 
-    public String getColor() {
-        return color;
+    public String getColorMonto() {
+        return colorMonto;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColorMonto(String colorMonto) {
+        this.colorMonto = colorMonto;
+    }
+
+    public String getColorIcono() {
+        return colorIcono;
+    }
+
+    public void setColorIcono(String colorIcono) {
+        this.colorIcono = colorIcono;
+    }
+
+    public int getIcono() {
+        return icono;
+    }
+
+    public void setIcono(int icono) {
+        this.icono = icono;
     }
 }
