@@ -9,18 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.CoinRabit.NoActionBar">
-        <activity
-            android:name=".MenuActivity"
-            android:label="CoinRabbit"
-            android:theme="@style/Theme.CoinRabit.NoActionBar">
+        <activity android:name=".list">
+
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity android:name=".LogInActivity" />
 
+        </activity>
     </application>
 
 </manifest>
