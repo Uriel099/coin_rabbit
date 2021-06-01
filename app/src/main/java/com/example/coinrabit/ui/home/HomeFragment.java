@@ -12,8 +12,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coinrabit.Charts;
+import com.example.coinrabit.ListAdapter;
+import com.example.coinrabit.ListElement;
 import com.example.coinrabit.R;
 
 import com.google.android.material.navigation.NavigationView;
@@ -36,7 +40,7 @@ public class HomeFragment extends Fragment {
         charts.createCharts();
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        textView.setText("Bienvenido "+user.getDisplayName());
+        textView.setText("Bienvenido ");
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -48,6 +52,8 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
+
+
 
 
 }
