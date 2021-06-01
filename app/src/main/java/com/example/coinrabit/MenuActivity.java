@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.coinrabit.ui.home.HomeFragment;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
@@ -58,7 +59,6 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
                         super.onCreate(savedInstanceState);
                         setContentView(R.layout.activity_menu_drawer);
                         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -103,6 +103,7 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 //Crea objeto
                 FirebaseUser user = firebaseAuth.getCurrentUser();
+
                 //Si el objeto es diferente de null lo envia a su pantalla
                 if (user != null) {
                     setUserData(user);

@@ -21,8 +21,8 @@ public class Charts {
     private PieChart pieChart;
     private BarChart barChart;
     private String[] months=new String[]{"Ingresos","Egresos"};
-    private int[] sale = new int[]{2200,1300};
-    private int[] colors = new int[]{Color.GREEN,Color.RED};
+    private int[] sale = new int[]{2000,1300};
+    private int[] colors = new int[]{Color.GREEN,Color.CYAN};
 
 
 
@@ -153,7 +153,7 @@ public class Charts {
     private PieData getPieData(){
 
         PieDataSet pieDataSet=(PieDataSet)getData(new PieDataSet(getPieEntries(),""));
-        pieDataSet.setSliceSpace(0);
+        pieDataSet.setSliceSpace(3);
         pieDataSet.setValueFormatter(new PercentFormatter(pieChart));
         PieData pd = new PieData(pieDataSet);
         return pd;
