@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">CoinRabit</string>
+    <string name="ahorro">Ahorro:</string>
+    <string name="ahorro2">Aqui se muestra el ahorro</string>
+    <string name="ingresos">Ingresos</string>
+    <string name="egresos">Gastos</string>
+    <string name="regingreso">Registrar ingreso</string>
+    <string name="regresar">Regresar</string>
+    <string name="monto">Monto</string>
+    <string name="concepto">Concepto</string>
+    <string name="vacio"></string>
+    <string name="observacion">Observacion (Opcional)</string>
+    <string name="registrar">Registrar</string>
+    <string name="reg_gasto">Registrar Gasto</string>
 </resources>

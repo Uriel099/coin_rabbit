@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CoinRabit">
+        <activity android:name=".registra_gasto"></activity>
+        <activity android:name=".gastos" />
+        <activity android:name=".registra_ingreso" />
+        <activity android:name=".ingresos" />
+        <activity android:name=".principal" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,5 +22,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
