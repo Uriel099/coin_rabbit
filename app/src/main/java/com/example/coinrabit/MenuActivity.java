@@ -55,10 +55,6 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
-
-
                         super.onCreate(savedInstanceState);
                         setContentView(R.layout.activity_menu_drawer);
                         Toolbar toolbar = findViewById(R.id.toolbar);

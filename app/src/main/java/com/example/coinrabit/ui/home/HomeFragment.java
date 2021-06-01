@@ -17,13 +17,15 @@ import com.example.coinrabit.Charts;
 import com.example.coinrabit.R;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     Charts charts = new Charts();
-
+    FirebaseAuth firebaseAuth;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -32,10 +34,13 @@ public class HomeFragment extends Fragment {
         TextView textView = root.findViewById(R.id.text_home);
         charts.setPieChart(root.findViewById(R.id.pieChartLayout));
         charts.createCharts();
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        textView.setText("Bienvenido "+user.getDisplayName());
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+
             }
         });
 

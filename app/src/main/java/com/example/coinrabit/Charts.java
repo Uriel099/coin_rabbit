@@ -21,7 +21,7 @@ public class Charts {
     private PieChart pieChart;
     private BarChart barChart;
     private String[] months=new String[]{"Ingresos","Egresos"};
-    private int[] sale=new int[]{3200,1300};
+    private int[] sale=new int[]{2200,1300};
     private int[] colors=new int[]{Color.GREEN,Color.RED};
 
 
@@ -128,7 +128,7 @@ public class Charts {
     }*/
 
     public void createCharts(){
-        pieChart=(PieChart)getSameChart(pieChart,"Ventas",Color.GRAY,Color.WHITE,3000);
+        pieChart=(PieChart)getSameChart(pieChart,"",Color.GRAY,Color.WHITE,3000);
         pieChart.setHoleRadius(10);
         pieChart.setDrawHoleEnabled(false);
         pieChart.setTransparentCircleRadius(12);
