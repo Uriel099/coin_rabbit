@@ -21,8 +21,8 @@ public class Charts {
     private PieChart pieChart;
     private BarChart barChart;
     private String[] months=new String[]{"Ingresos","Egresos"};
-    private int[] sale=new int[]{2200,1300};
-    private int[] colors=new int[]{Color.GREEN,Color.RED};
+    private int[] sale = new int[]{2200,1300};
+    private int[] colors = new int[]{Color.GREEN,Color.RED};
 
 
 

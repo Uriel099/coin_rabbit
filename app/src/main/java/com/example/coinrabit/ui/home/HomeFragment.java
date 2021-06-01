@@ -1,30 +1,31 @@
 package com.example.coinrabit.ui.home;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.coinrabit.Charts;
-import com.example.coinrabit.ListAdapter;
-import com.example.coinrabit.ListElement;
 import com.example.coinrabit.R;
 
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
@@ -40,7 +41,8 @@ public class HomeFragment extends Fragment {
         charts.createCharts();
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        textView.setText("Bienvenido ");
+        textView.setText("Bienvenido");
+        //carga_ahorro();
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -51,6 +53,30 @@ public class HomeFragment extends Fragment {
 
 
         return root;
+    }
+
+    private int carga_ahorro(){
+        String url = "https://humanservices21.tk/android/get_ahorro.php?uaid=prueba";
+        AtomicInteger num = new AtomicInteger();
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, (response) ->{
+            JSONObject jsonObject = null;
+
+            for (int i = 0; i < response.length(); i++){
+                try{
+                    jsonObject = response.getJSONObject(i);
+                    //ahorro.setText(jsonObject.getString("ahorro"));
+                    //Toast.makeText(this.getContext(), jsonObject.getString("ahorro"), Toast.LENGTH_SHORT).show();
+                    num.set(Integer.valueOf(jsonObject.getString("ahorro")));
+                }catch (JSONException e){
+                    Toast.makeText(this.getContext(), "error" + e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, error -> {
+            //Toast.makeText(getApplicationContext(), "error" + error.toString(), Toast.LENGTH_SHORT).show();
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(this.getContext());
+        requestQueue.add(jsonArrayRequest);
+        return num.get();
     }
 
 
