@@ -24,11 +24,18 @@ public class list extends AppCompatActivity {
     }
 
     public void init(){
+        String colorIngreso = "#5CB300";
+        String colorEgreso = "#FF0000";
+        String colorInconoIngreso = "#D1BE00";
+        String colorInconoEgreso = "#FF0000";
+        Integer iconoEgreso =R.drawable.ic_transit_enterexit_black_24dp;
+        Integer iconoIngreso =R.drawable.ic_paid_black_24dp;
+
+
         elements=new ArrayList<>();
-        elements.add(new ListElement("Ingreso","Pago avance del proyecto","27/05/2021","$8000","#0000FF"));
-        elements.add(new ListElement("Egreso","Pago renta mensual","27/05/2021","$3500","#FF0000"));
-        elements.add(new ListElement("Ingreso","Pago nomina quincenal","30/05/2021","$8000","#0000FF"));
-        elements.add(new ListElement("Egreso","Pago cena","30/05/2021","$5000","#FF0000"));
+        elements.add(new ListElement("Ingreso","Pago avance del proyecto","27/05/2021","$8000",colorIngreso,colorInconoIngreso,iconoIngreso));
+        elements.add(new ListElement("Egreso","Pago renta mensual","30/05/2021","$3500",colorEgreso,colorInconoEgreso,iconoEgreso));
+
 
         ListAdapter listAdapter = new ListAdapter(elements,this);
         RecyclerView recyclerView = findViewById(R.id.listRecyclerView);

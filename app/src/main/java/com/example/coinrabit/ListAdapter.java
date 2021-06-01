@@ -48,6 +48,7 @@ public class ListAdapter extends RecyclerView.Adapter <ListAdapter.ViewHolder> {
         ImageView iconImage;
         TextView tipo,concepto,fecha,monto;
 
+
         ViewHolder(View itemView){
             super(itemView);
             iconImage = itemView.findViewById(R.id.iconImageView);
@@ -58,11 +59,13 @@ public class ListAdapter extends RecyclerView.Adapter <ListAdapter.ViewHolder> {
         }
 
         void bindData(final ListElement item){
-            iconImage.setColorFilter(Color.parseColor(item.getColor()), PorterDuff.Mode.SRC_IN);
+            iconImage.setColorFilter(Color.parseColor(item.getColorIcono()), PorterDuff.Mode.SRC_IN);
+            iconImage.setImageResource(item.getIcono());
             tipo.setText(item.getTipo());
             concepto.setText(item.getConcepto());
             fecha.setText(item.getFecha());
             monto.setText(item.getMonto());
+            monto.setTextColor(Color.parseColor(item.getColorMonto()));
 
 
         }
