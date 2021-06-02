@@ -6,12 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".detailsCardView">
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="13dp"
         android:orientation="vertical"
@@ -66,6 +67,14 @@
             android:gravity="start|top"
             android:hint="Observaciones"
             android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/etFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Fecha"
+            android:inputType="date" />
 
         <Button
             android:id="@+id/btnGuardar"
