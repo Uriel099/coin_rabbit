@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvIngresos"
+            android:id="@+id/tvIngreso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ingreso"
@@ -40,7 +40,7 @@
             android:textSize="34sp" />
 
         <EditText
-            android:id="@+id/etConceptoEgreso"
+            android:id="@+id/etConceptoIngreso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -48,7 +48,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/etMonto"
+            android:id="@+id/etMontoIngreso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="132dp"
@@ -61,7 +61,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etObservaciones"
+            android:id="@+id/etObservacionesIngreso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -69,12 +69,20 @@
             android:hint="Observaciones"
             android:inputType="textMultiLine" />
 
+        <EditText
+            android:id="@+id/etFechaIngreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Fecha"
+            android:inputType="date" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="106dp">
 
             <com.spark.submitbutton.SubmitButton
-                android:id="@+id/btnSubmit"
+                android:id="@+id/btnSubmitIngreso"
 
                 android:layout_width="155dp"
                 android:layout_height="0dp"
@@ -94,6 +102,7 @@
                 app:sub_btn_line_color="#D1BE00"
                 app:sub_btn_ripple_color="@color/common_google_signin_btn_text_light_pressed"
                 app:sub_btn_tick_color="@color/common_google_signin_btn_text_light" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

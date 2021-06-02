@@ -8,9 +8,10 @@ public class ListElement {
     public String colorMonto;
     public String colorIcono;
     public int icono;
+    public String idMovimiento;
 
 
-    public ListElement(String tipo, String concepto, String fecha, String monto, String colorMonto, String colorIcono, int icono) {
+    public ListElement(String tipo, String concepto, String fecha, String monto, String colorMonto, String colorIcono, int icono, String idMovimiento) {
         this.tipo = tipo;
         this.concepto = concepto;
         this.fecha = fecha;
@@ -18,6 +19,7 @@ public class ListElement {
         this.colorMonto = colorMonto;
         this.colorIcono = colorIcono;
         this.icono = icono;
+        this.idMovimiento = idMovimiento;
     }
 
     public String getTipo() {
@@ -74,5 +76,13 @@ public class ListElement {
 
     public void setIcono(int icono) {
         this.icono = icono;
+    }
+
+    public String getIdMovimiento() {
+        return idMovimiento;
+    }
+
+    public void setIdMovimiento(String idMovimiento) {
+        this.idMovimiento = idMovimiento;
     }
 }

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.coinrabit">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,11 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.CoinRabit.NoActionBar">
+        <activity android:name=".detailsCardView"></activity>
         <activity
-            android:windowSoftInputMode="adjustNothing"
             android:name=".MenuActivity"
             android:label="CoinRabbit"
-            android:theme="@style/Theme.CoinRabit.NoActionBar">
+            android:theme="@style/Theme.CoinRabit.NoActionBar"
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,11 +24,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".LogInActivity" />
-
-
     </application>
-
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
