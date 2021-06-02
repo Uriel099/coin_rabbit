@@ -138,7 +138,7 @@ public class Charts {
 
     private DataSet getData(DataSet dataSet){
         dataSet.setColors(colors);
-        dataSet.setValueTextColor(Color.WHITE);
+        dataSet.setValueTextColor(Color.BLACK);
         dataSet.setValueTextSize(15);
         return dataSet;
     }

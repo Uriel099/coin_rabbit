@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -194,6 +195,8 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
         });
     }
 
-
-
+    public void methodname(MenuItem item) {
+        Intent intent = new Intent(this, MovimientosActivity.class);
+        startActivity(intent);
+    }
 }
