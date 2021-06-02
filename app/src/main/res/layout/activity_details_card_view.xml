@@ -2,24 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:windowSoftInputMode="adjustNothing"
-    tools:context=".ui.gallery.GalleryFragment"
-    >
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listRecyclerView"
-        android:layout_width="388dp"
-        android:layout_height="281dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
+    tools:context=".detailsCardView">
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="342dp"
@@ -35,15 +21,24 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvEgreso"
+            android:id="@+id/tvDetalle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Egreso"
+            android:text="Detalles"
             android:textColor="#000000"
             android:textSize="34sp" />
 
         <EditText
-            android:id="@+id/etConceptoEgreso"
+            android:id="@+id/etIdMoviento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:ems="10"
+            android:hint="Id"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/etConceptoEgresos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -72,44 +67,17 @@
             android:hint="Observaciones"
             android:inputType="textMultiLine" />
 
-        <EditText
-            android:id="@+id/etFechaEgreso"
+        <Button
+            android:id="@+id/btnGuardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Fecha"
-            android:inputType="date" />
+            android:text="Guardar" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <Button
+            android:id="@+id/btnEliminar"
             android:layout_width="match_parent"
-            android:layout_height="106dp">
-
-            <com.spark.submitbutton.SubmitButton
-                android:id="@+id/btnSubmitEgreso"
-
-                android:layout_width="155dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="96dp"
-                android:layout_marginEnd="96dp"
-                android:text="Agregar"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.492"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:sub_btn_background="@color/GreenMoney"
-                app:sub_btn_duration="2000"
-                app:sub_btn_line_color="#D1BE00"
-                app:sub_btn_ripple_color="@color/common_google_signin_btn_text_light_pressed"
-                app:sub_btn_tick_color="@color/common_google_signin_btn_text_light" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="wrap_content"
+            android:text="Eliminar" />
 
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
