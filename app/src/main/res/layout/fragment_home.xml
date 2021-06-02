@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="45dp"
-        android:text="Egresos  "
+        android:text="Ingresos"
         android:textAlignment="viewStart"
         android:textSize="8sp"
         app:icon="@drawable/ic_call_made_black_24dp"
@@ -26,8 +26,8 @@
 
     <TextView
         android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="397dp"
+        android:layout_height="63dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
@@ -47,12 +47,12 @@
         android:layout_width="345dp"
         android:layout_height="218dp"
         android:layout_marginStart="123dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="112dp"
         android:layout_marginEnd="122dp"
         android:backgroundTint="#69F0AE"
         android:backgroundTintMode="src_over"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:onClick="onClick"
-        android:text="Ingresos"
+        android:text="Egresos"
         android:textAlignment="viewStart"
         android:textSize="8sp"
         app:icon="@drawable/ic_call_received_black_24dp"

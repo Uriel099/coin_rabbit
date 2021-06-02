@@ -4,20 +4,27 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.coinrabit.Charts;
 import com.example.coinrabit.R;
+import com.example.coinrabit.ui.gallery.GalleryFragment;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -32,6 +39,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     Charts charts = new Charts();
     FirebaseAuth firebaseAuth;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -42,8 +50,23 @@ public class HomeFragment extends Fragment {
         charts.createCharts();
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        textView.setText("Bienvenido");
-        //carga_ahorro();
+        textView.setText("Bienvenido "+ user.getDisplayName());
+        Button btn = root.findViewById(R.id.button2);
+        Button btn4 = root.findViewById(R.id.button4);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.nav_slideshow);
+            }
+        });
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.nav_gallery);
+            }
+        });
+
+
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -80,15 +103,9 @@ public class HomeFragment extends Fragment {
         return num.get();
     }
 
-    public void guardar(View v){
-        if(1<2){
-            Toast.makeText(this.getContext(), "Comprendou", Toast.LENGTH_LONG).show();
 
-
-        }
 
     }
 
 
 
-}

@@ -1,5 +1,7 @@
 package com.example.coinrabit;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +24,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.coinrabit.ui.gallery.GalleryFragment;
 import com.example.coinrabit.ui.home.HomeFragment;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -199,4 +202,5 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
         Intent intent = new Intent(this, MovimientosActivity.class);
         startActivity(intent);
     }
+
 }
