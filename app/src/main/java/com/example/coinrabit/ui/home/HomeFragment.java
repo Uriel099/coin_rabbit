@@ -18,7 +18,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.coinrabit.Charts;
 import com.example.coinrabit.R;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -26,6 +25,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.concurrent.atomic.AtomicInteger;
+
+
 
 public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
@@ -79,6 +80,14 @@ public class HomeFragment extends Fragment {
         return num.get();
     }
 
+    public void guardar(View v){
+        if(1<2){
+            Toast.makeText(this.getContext(), "Comprendou", Toast.LENGTH_LONG).show();
+
+
+        }
+
+    }
 
 
 

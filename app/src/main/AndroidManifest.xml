@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoinRabit.NoActionBar">
         <activity
+            android:windowSoftInputMode="adjustNothing"
             android:name=".MenuActivity"
             android:label="CoinRabbit"
             android:theme="@style/Theme.CoinRabit.NoActionBar">
@@ -20,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LogInActivity" />
+
 
     </application>
 
