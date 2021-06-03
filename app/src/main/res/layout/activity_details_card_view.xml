@@ -25,7 +25,7 @@
             android:id="@+id/tvDetalle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Detalles"
+            android:text="@string/LabelDetalles"
             android:textColor="#000000"
             android:textSize="34sp" />
 
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:editable="false"
             android:ems="10"
-            android:hint="Id"
+            android:hint="@string/LabelId"
             android:inputType="textPersonName" />
 
         <EditText
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Concepto"
+            android:hint="@string/LabelConcepto"
             android:inputType="textPersonName" />
 
         <EditText
@@ -53,7 +53,7 @@
             android:layout_marginEnd="132dp"
             android:drawableLeft="@drawable/ic_attach_money_black_24dp"
             android:ems="10"
-            android:hint="Monto"
+            android:hint="@string/LabelMonto"
             android:imeActionLabel="$"
             android:inputType="numberDecimal"
             android:textAlignment="textStart"
@@ -65,30 +65,33 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Observaciones"
+            android:hint="@string/LabelObservaciones"
             android:inputType="textMultiLine" />
 
-        <EditText
+
+        <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/etFechaConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Fecha YYYY-MM-DD"
-            android:inputType="date" />
+            android:hint="@string/LabelFecha"
+            android:inputType="date"
+            app:mask="####-##-##"
+            app:maskCharacter="#"
+            app:maskStyle="completable" />
 
         <Button
             android:id="@+id/btnGuardarConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="registra_cambios"
-            android:text="Guardar" />
+            android:text="@string/LabelGuardar" />
 
         <Button
             android:id="@+id/btnEliminarConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="elimina"
-            android:text="Eliminar" />
+            android:text="@string/LabelEliminar" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

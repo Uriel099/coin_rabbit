@@ -22,8 +22,33 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_home">Inicio</string>
-    <string name="menu_gallery">Egresos</string>
-    <string name="menu_slideshow">Ingresos</string>
+    <string name="LabelEgresos">Egresos</string>
+    <string name="LabelIngresos">Ingresos</string>
+    <string name="LabelEgreso">Egreso</string>
+    <string name="LabelIngreso">Ingreso</string>
+    <string name="LabelBienvenido">Bienvenido</string>
+    <string name="LabelId">Id</string>
+    <string name="LabelConcepto">Concepto</string>
+    <string name="LabelMonto">Monto</string>
+    <string name="LabelFecha">Fecha</string>
+    <string name="LabelAgregar">Agregar</string>
+    <string name="LabelGuardar">Guardar</string>
+    <string name="LabelEliminar">Eliminar</string>
+    <string name="LabelObservaciones">Observaciones</string>
+    <string name="LabelDetalles">Detalles</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

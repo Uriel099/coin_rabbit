@@ -29,6 +29,7 @@ import com.example.coinrabit.ListElement;
 import com.example.coinrabit.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.santalu.maskara.widget.MaskEditText;
 import com.spark.submitbutton.SubmitButton;
 
 import org.json.JSONException;
@@ -45,7 +46,8 @@ public class GalleryFragment extends Fragment {
     RecyclerView recyclerView;
     private GalleryViewModel galleryViewModel;
     Context context;
-    EditText etConcepto,etMonto,etObservaciones,etFecha;
+    EditText etConcepto,etMonto,etObservaciones;
+    MaskEditText etFecha;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user = firebaseAuth.getCurrentUser();
     String uid = firebaseAuth.getUid();

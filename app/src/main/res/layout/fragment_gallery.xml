@@ -38,7 +38,7 @@
             android:id="@+id/tvEgreso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Egreso"
+            android:text="@string/LabelEgreso"
             android:textColor="#000000"
             android:textSize="34sp" />
 
@@ -57,7 +57,7 @@
             android:layout_marginEnd="132dp"
             android:drawableLeft="@drawable/ic_attach_money_black_24dp"
             android:ems="10"
-            android:hint="Monto"
+            android:hint="@string/LabelMonto"
             android:imeActionLabel="$"
             android:inputType="numberDecimal"
             android:textAlignment="textStart"
@@ -69,16 +69,19 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Observaciones"
+            android:hint="@string/LabelObservaciones"
             android:inputType="textMultiLine" />
 
-        <EditText
+
+        <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/etFechaEgreso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Fecha YYYY-MM-DD"
-            android:inputType="date" />
+            android:hint="@string/LabelFecha"
+            android:inputType="date"
+            app:mask="####-##-##"
+            app:maskCharacter="#"
+            app:maskStyle="completable" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -91,7 +94,7 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="96dp"
                 android:layout_marginEnd="96dp"
-                android:text="Agregar"
+                android:text="@string/LabelAgregar"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

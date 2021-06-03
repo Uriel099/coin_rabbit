@@ -29,6 +29,7 @@ import com.example.coinrabit.ListElement;
 import com.example.coinrabit.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.santalu.maskara.widget.MaskEditText;
 import com.spark.submitbutton.SubmitButton;
 
 import org.json.JSONException;
@@ -42,7 +43,8 @@ import java.util.Map;
 public class SlideshowFragment extends Fragment {
     List<ListElement> elements;
     RecyclerView recyclerView;
-    EditText etConcepto,etMonto,etObservaciones,etFecha;
+    EditText etConcepto,etMonto,etObservaciones;
+    MaskEditText etFecha;
     Context context;
 
 

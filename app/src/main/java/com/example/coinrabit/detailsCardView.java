@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.santalu.maskara.widget.MaskEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +26,8 @@ import java.util.Map;
 
 public class detailsCardView extends AppCompatActivity {
     String idMovimiento;
-    EditText etidMovimiento,etConcepto,etMonto,etDescripcion,etFecha;
+    EditText etidMovimiento,etConcepto,etMonto,etDescripcion;
+    MaskEditText etFecha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,30 +105,30 @@ public class detailsCardView extends AppCompatActivity {
     }
 
     public void elimina(View v){
-            String url = "https://humanservices21.tk/android/eliminar_movimiento.php";
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    Toast.makeText(getApplicationContext(), "eliminado exitosamente", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(detailsCardView.this, MenuActivity.class);
-                    startActivity(i);
-                    //Navigation.findNavController(v).navigate(R.id.nav_home);
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getApplicationContext(), "error" + error.toString(), Toast.LENGTH_LONG).show();
-                }
-            }){
-                @Override
-                protected Map<String,String> getParams() throws AuthFailureError {
-                    Map<String, String> parametros = new HashMap<>();
-                    parametros.put("id", etidMovimiento.getText().toString());
-                    return parametros;
-                }
-            };
-            RequestQueue requestQueue = Volley.newRequestQueue(this);
-            requestQueue.add(stringRequest);
+        String url = "https://humanservices21.tk/android/eliminar_movimiento.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(), "eliminado exitosamente", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(detailsCardView.this, MenuActivity.class);
+                startActivity(i);
+                //Navigation.findNavController(v).navigate(R.id.nav_home);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "error" + error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams() throws AuthFailureError {
+                Map<String, String> parametros = new HashMap<>();
+                parametros.put("id", etidMovimiento.getText().toString());
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
     private boolean valida(){
