@@ -87,7 +87,7 @@ public class Charts {
     private void legend(Chart chart){
         Legend legend=chart.getLegend();
         legend.setForm(Legend.LegendForm.SQUARE);
-        legend.setTextSize(15);
+        legend.setTextSize(13);
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
         ArrayList<LegendEntry> entries=new ArrayList<>();
         for(int i=0;i< months.length;i++){

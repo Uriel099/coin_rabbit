@@ -1,5 +1,6 @@
 package com.example.coinrabit.ui.home;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ import org.json.JSONObject;
 
 public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
+    TextView leyendaSalud;
     Charts charts = new Charts();
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -50,6 +52,7 @@ public class HomeFragment extends Fragment {
         textView.setText("Bienvenido");
         Button btn = root.findViewById(R.id.button2);
         Button btn4 = root.findViewById(R.id.button4);
+        leyendaSalud=root.findViewById(R.id.leyendaSalud);
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,6 +87,7 @@ public class HomeFragment extends Fragment {
                 int[] saleNew = new int[]{ Integer.parseInt(jsonObject.getString("ingreso")) ,Integer.parseInt(jsonObject.getString("gastos"))};
                 charts.setSale(saleNew);
                 charts.createCharts();
+                analisis(Integer.parseInt(jsonObject.getString("ingreso")),Integer.parseInt(jsonObject.getString("gastos")));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -94,5 +98,25 @@ public class HomeFragment extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(this.getContext());
         requestQueue.add(jsonArrayRequest);
     }
+    public void formatTextView(String color,String leyenda, TextView tv){
+        tv.setText(leyenda);
+        tv.setTextColor(Color.parseColor(color));
 
+    }
+
+    public void analisis(int ingresos,int egresos){
+
+        String positiva="Tu Salud Financiera se encuentra bien";
+        String negativa="Cuidado, tu salud financiera esta en riesgo";
+        String neutral="Estas gastando lo mismo que ganas, ten cuidado";
+        if((ingresos-egresos)>0){
+            formatTextView("#5CB300",positiva,leyendaSalud);
+        }
+        else if((ingresos-egresos)<0){
+            formatTextView("#FFF44336",negativa,leyendaSalud);
+        }
+        else if((ingresos-egresos)==0){
+            formatTextView("#FFF44336",neutral,leyendaSalud);
+        }
+    }
 }

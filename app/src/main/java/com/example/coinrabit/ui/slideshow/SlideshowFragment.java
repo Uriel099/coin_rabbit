@@ -78,7 +78,9 @@ public class SlideshowFragment extends Fragment {
         etMonto=root.findViewById(R.id.etMontoIngreso);
         etObservaciones=root.findViewById(R.id.etObservacionesIngreso);
         etFecha=root.findViewById(R.id.etFechaIngreso);
+
         context=root.getContext();
+
 
         SubmitButton btn = root.findViewById(R.id.btnSubmitIngreso);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -167,4 +169,7 @@ public class SlideshowFragment extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(this.getContext());
         requestQueue.add(jsonArrayRequest);
     }
+
+
+
 }
