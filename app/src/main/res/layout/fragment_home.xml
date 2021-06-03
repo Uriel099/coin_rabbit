@@ -4,25 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#69F0AE"
-    android:backgroundTint="#69F0AE"
     android:backgroundTintMode="src_over"
     tools:context=".ui.home.HomeFragment">
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
-        android:text="Ingresos"
-        android:textAlignment="viewStart"
-        android:textSize="8sp"
-        app:icon="@drawable/ic_call_made_black_24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <TextView
         android:id="@+id/text_home"
@@ -33,7 +16,8 @@
         android:layout_marginEnd="8dp"
         android:text="Bienvenido"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textColor="#000000"
+        android:textSize="48sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,32 +28,43 @@
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChartLayout"
-        android:layout_width="345dp"
-        android:layout_height="218dp"
+        android:layout_width="376dp"
+        android:layout_height="282dp"
         android:layout_marginStart="123dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="122dp"
-        android:backgroundTint="#69F0AE"
         android:backgroundTintMode="src_over"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
 
     <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="112dp"
+        android:text="Ingresos"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        app:icon="@drawable/ic_call_made_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <Button
+
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:onClick="onClick"
-        android:text="Egresos"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="112dp"
+        android:text="Egresos "
         android:textAlignment="viewStart"
-        android:textSize="8sp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:icon="@drawable/ic_call_received_black_24dp"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pieChartLayout" />
 
     <TextView
@@ -79,10 +74,12 @@
         android:layout_marginStart="180dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="174dp"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif"
+        android:text="Nombre"
         android:textAlignment="center"
-        android:textSize="14sp"
-        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home" />

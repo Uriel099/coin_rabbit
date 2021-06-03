@@ -12,7 +12,7 @@
         android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="13dp"
         android:orientation="vertical"
@@ -30,7 +30,7 @@
             android:textSize="34sp" />
 
         <EditText
-            android:id="@+id/etIdMoviento"
+            android:id="@+id/etIdMovientoConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:editable="false"
@@ -39,7 +39,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/etConceptoEgresos"
+            android:id="@+id/etConceptoConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -47,7 +47,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/etMontoEgreso"
+            android:id="@+id/etMontoConsulta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="132dp"
@@ -60,7 +60,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etObservacionesEgreso"
+            android:id="@+id/etObservacionesConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -69,7 +69,7 @@
             android:inputType="textMultiLine" />
 
         <EditText
-            android:id="@+id/etFecha"
+            android:id="@+id/etFechaConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -77,15 +77,17 @@
             android:inputType="date" />
 
         <Button
-            android:id="@+id/btnGuardar"
+            android:id="@+id/btnGuardarConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="registra_cambios"
             android:text="Guardar" />
 
         <Button
-            android:id="@+id/btnEliminar"
+            android:id="@+id/btnEliminarConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="elimina"
             android:text="Eliminar" />
 
     </LinearLayout>

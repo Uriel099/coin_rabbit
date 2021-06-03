@@ -27,6 +27,8 @@ import com.android.volley.toolbox.Volley;
 import com.example.coinrabit.ListAdapter;
 import com.example.coinrabit.ListElement;
 import com.example.coinrabit.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.spark.submitbutton.SubmitButton;
 
 import org.json.JSONException;
@@ -44,6 +46,9 @@ public class GalleryFragment extends Fragment {
     private GalleryViewModel galleryViewModel;
     Context context;
     EditText etConcepto,etMonto,etObservaciones,etFecha;
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = firebaseAuth.getCurrentUser();
+    String uid = firebaseAuth.getUid();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -88,7 +93,7 @@ public class GalleryFragment extends Fragment {
                         parametros.put("monto", etMonto.getText().toString());
                         parametros.put("concepto", etConcepto.getText().toString());
                         parametros.put("observacion", etObservaciones.getText().toString());
-                        parametros.put("uaid", "rZCu37AZXGhgspwSfIjo1Ab6Nme2");
+                        parametros.put("uaid", uid);
                         return parametros;
                     }
                 };
@@ -109,7 +114,7 @@ public class GalleryFragment extends Fragment {
 
     private void llenar(){
 
-        String url = "https://humanservices21.tk/android/get_data.php?tipo=egreso&uaid=rZCu37AZXGhgspwSfIjo1Ab6Nme2";
+        String url = "https://humanservices21.tk/android/get_data.php?tipo=egreso&uaid="+uid;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, (response) ->{
             JSONObject jsonObject = null;
             //Toast.makeText(getApplicationContext(), response.length(), Toast.LENGTH_SHORT).show();

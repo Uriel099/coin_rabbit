@@ -22,7 +22,7 @@ public class Charts {
     private BarChart barChart;
     private String[] months=new String[]{"Ingresos","Egresos"};
     private int[] sale = new int[]{2000,1300};
-    private int[] colors = new int[]{Color.GREEN,Color.CYAN};
+    private int[] colors = new int[]{Color.parseColor("#5CB300"),Color.parseColor("#FFF44336")};
 
 
 
@@ -86,7 +86,8 @@ public class Charts {
 
     private void legend(Chart chart){
         Legend legend=chart.getLegend();
-        legend.setForm(Legend.LegendForm.CIRCLE);
+        legend.setForm(Legend.LegendForm.SQUARE);
+        legend.setTextSize(15);
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
         ArrayList<LegendEntry> entries=new ArrayList<>();
         for(int i=0;i< months.length;i++){
@@ -138,8 +139,8 @@ public class Charts {
 
     private DataSet getData(DataSet dataSet){
         dataSet.setColors(colors);
-        dataSet.setValueTextColor(Color.BLACK);
-        dataSet.setValueTextSize(15);
+        dataSet.setValueTextColor(Color.WHITE);
+        dataSet.setValueTextSize(20);
         return dataSet;
     }
     /*private BarData getBarData(){
