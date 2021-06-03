@@ -35,7 +35,8 @@ public class HomeFragment extends Fragment {
     Charts charts = new Charts();
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user = firebaseAuth.getCurrentUser();
-    String uid ;
+    String uid;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -46,9 +47,17 @@ public class HomeFragment extends Fragment {
 
         charts.setPieChart(root.findViewById(R.id.pieChartLayout));
         //charts.createCharts();
-        textViewNombre.setText(user.getDisplayName());
+        try {
+            textViewNombre.setText(user.getDisplayName());
+        }catch (Exception e){
+            textViewNombre.setText("");
+        }
+
         uid = firebaseAuth.getUid();
         carga_ahorro();
+
+
+
         textView.setText("Bienvenido");
         Button btn = root.findViewById(R.id.button2);
         Button btn4 = root.findViewById(R.id.button4);

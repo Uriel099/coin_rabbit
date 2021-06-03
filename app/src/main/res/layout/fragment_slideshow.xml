@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Fecha"
+            android:hint="Fecha YYYY-MM-DD"
             android:inputType="date" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
