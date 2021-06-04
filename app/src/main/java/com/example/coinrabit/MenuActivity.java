@@ -40,7 +40,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MenuActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
+public class MenuActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private ImageView photoImageView;
     private TextView nameTextView;
     private TextView emailTextView;
@@ -55,32 +55,32 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-                        super.onCreate(savedInstanceState);
-                        setContentView(R.layout.activity_menu_drawer);
-                        Toolbar toolbar = findViewById(R.id.toolbar);
-                        setSupportActionBar(toolbar);
-                        FloatingActionButton fab = findViewById(R.id.fab);
-                        fab.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                logOut();
-                            }
-                        });
-                        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-                        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-                        photoImageView = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imageView_navheader);
-                        nameTextView = (TextView) navigationView.getHeaderView(0).findViewById(R.id.name_navheader);
-                        emailTextView =  (TextView) navigationView.getHeaderView(0).findViewById(R.id.tv_navheader);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu_drawer);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logOut();
+            }
+        });
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        photoImageView = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imageView_navheader);
+        nameTextView = (TextView) navigationView.getHeaderView(0).findViewById(R.id.name_navheader);
+        emailTextView = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tv_navheader);
 
-                        // Passing each menu ID as a set of Ids because each
-                        // menu should be considered as top level destinations.
-                        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-                                .setDrawerLayout(drawer)
-                                .build();
-                        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-                        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-                        NavigationUI.setupWithNavController(navigationView, navController);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                .setDrawerLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -88,7 +88,7 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
                 .build();
 
         googleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this,  this)
+                .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
@@ -135,7 +135,7 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
         userMap.put("email", user.getEmail());
         userMap.put("name", user.getDisplayName());
         userMap.put("id", user.getUid());
-        userMap.put("hourLogin",currentDateandTime);
+        userMap.put("hourLogin", currentDateandTime);
 
         fb.collection("Logins")
                 .add(userMap)
@@ -165,6 +165,7 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
         //Se declara un listener
         firebaseAuth.addAuthStateListener(firebaseAuthListener);
     }
+
     //Ir al login
     private void goLogInScreen() {
         Intent intent = new Intent(this, LogInActivity.class);
@@ -176,6 +177,7 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.O
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
     public void logOut() {
         firebaseAuth.signOut();
         Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {

@@ -15,32 +15,33 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter <ListAdapter.ViewHolder> {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private List<ListElement> mData;
     private LayoutInflater mInflater;
     private Context context;
 
-    public ListAdapter(List<ListElement> itemList,Context context){
-        this.mInflater=LayoutInflater.from(context);
-        this.context=context;
-        this.mData=itemList;
+    public ListAdapter(List<ListElement> itemList, Context context) {
+        this.mInflater = LayoutInflater.from(context);
+        this.context = context;
+        this.mData = itemList;
 
     }
 
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return mData.size();
     }
 
     @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = mInflater.inflate(R.layout.list_element,null);
+    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.list_element, null);
         return new ListAdapter.ViewHolder(view);
 
     }
+
     @Override
-    public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int position){
+    public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int position) {
         holder.bindData(mData.get(position));
         holder.idMovimiento.setText(mData.get(position).getIdMovimiento());
         holder.concepto.setText(mData.get(position).getConcepto());
@@ -53,32 +54,34 @@ public class ListAdapter extends RecyclerView.Adapter <ListAdapter.ViewHolder> {
 
     }
 
-    public void setItems(List<ListElement> items){mData = items;}
+    public void setItems(List<ListElement> items) {
+        mData = items;
+    }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView iconImage;
-        TextView tipo,concepto,fecha,monto,idMovimiento;
+        TextView tipo, concepto, fecha, monto, idMovimiento;
         Button btnDetalles;
         Context context;
 
-        ViewHolder(View itemView){
+        ViewHolder(View itemView) {
             super(itemView);
-            context=itemView.getContext();
+            context = itemView.getContext();
             iconImage = itemView.findViewById(R.id.iconImageView);
-            tipo=itemView.findViewById(R.id.tipoTextView);
-            concepto=itemView.findViewById(R.id.conceptoTextView);
-            fecha=itemView.findViewById(R.id.fechaTextView);
-            monto=itemView.findViewById(R.id.montoTextView);
-            idMovimiento=itemView.findViewById(R.id.idMovimientoTextView);
-            btnDetalles=itemView.findViewById(R.id.btnDetalles);
+            tipo = itemView.findViewById(R.id.tipoTextView);
+            concepto = itemView.findViewById(R.id.conceptoTextView);
+            fecha = itemView.findViewById(R.id.fechaTextView);
+            monto = itemView.findViewById(R.id.montoTextView);
+            idMovimiento = itemView.findViewById(R.id.idMovimientoTextView);
+            btnDetalles = itemView.findViewById(R.id.btnDetalles);
         }
 
-        void setOnClickListeners(){
+        void setOnClickListeners() {
             btnDetalles.setOnClickListener(this);
         }
 
-        void bindData(final ListElement item){
+        void bindData(final ListElement item) {
             iconImage.setColorFilter(Color.parseColor(item.getColorIcono()), PorterDuff.Mode.SRC_IN);
             iconImage.setImageResource(item.getIcono());
             tipo.setText(item.getTipo());
@@ -93,8 +96,8 @@ public class ListAdapter extends RecyclerView.Adapter <ListAdapter.ViewHolder> {
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(context,detailsCardView.class);
-            intent.putExtra("idMovimiento",idMovimiento.getText());
+            Intent intent = new Intent(context, detailsCardView.class);
+            intent.putExtra("idMovimiento", idMovimiento.getText());
             context.startActivity(intent);
         }
     }

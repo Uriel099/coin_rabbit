@@ -26,17 +26,18 @@ import java.util.Map;
 
 public class detailsCardView extends AppCompatActivity {
     String idMovimiento;
-    EditText etidMovimiento,etConcepto,etMonto,etDescripcion;
+    EditText etidMovimiento, etConcepto, etMonto, etDescripcion;
     MaskEditText etFecha;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_card_view);
         Bundle extras = getIntent().getExtras();
-        if(extras != null){
-            idMovimiento= extras.getString("idMovimiento");
+        if (extras != null) {
+            idMovimiento = extras.getString("idMovimiento");
         }
-        etidMovimiento= findViewById(R.id.etIdMovientoConsulta);
+        etidMovimiento = findViewById(R.id.etIdMovientoConsulta);
 
         etidMovimiento.setText(idMovimiento);
 
@@ -47,18 +48,18 @@ public class detailsCardView extends AppCompatActivity {
         carga_edita();
     }
 
-    private void carga_edita(){
-        String url = "https://humanservices21.tk/android/single_move.php?id="+etidMovimiento.getText().toString();
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, (response) ->{
+    private void carga_edita() {
+        String url = "https://humanservices21.tk/android/single_move.php?id=" + etidMovimiento.getText().toString();
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, (response) -> {
             JSONObject jsonObject = null;
-            for (int i = 0; i < response.length(); i++){
-                try{
+            for (int i = 0; i < response.length(); i++) {
+                try {
                     jsonObject = response.getJSONObject(i);
                     etMonto.setText(jsonObject.getString("Monto"));
                     etConcepto.setText(jsonObject.getString("Concepto"));
                     etDescripcion.setText(jsonObject.getString("Observacion"));
                     etFecha.setText(jsonObject.getString("fecha"));
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(), "error" + e.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -69,8 +70,8 @@ public class detailsCardView extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
 
-    public void registra_cambios(View v){
-        if(valida()){
+    public void registra_cambios(View v) {
+        if (valida()) {
             String url = "https://humanservices21.tk/android/update.php";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
@@ -85,9 +86,9 @@ public class detailsCardView extends AppCompatActivity {
                 public void onErrorResponse(VolleyError error) {
                     Toast.makeText(getApplicationContext(), "error" + error.toString(), Toast.LENGTH_LONG).show();
                 }
-            }){
+            }) {
                 @Override
-                protected Map<String,String> getParams() throws AuthFailureError {
+                protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> parametros = new HashMap<>();
                     parametros.put("monto", etMonto.getText().toString());
                     parametros.put("concepto", etConcepto.getText().toString());
@@ -99,12 +100,12 @@ public class detailsCardView extends AppCompatActivity {
             };
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(stringRequest);
-        }else{
+        } else {
             Toast.makeText(getApplicationContext(), "Favor de llenar todos los campos no opcionales", Toast.LENGTH_LONG).show();
         }
     }
 
-    public void elimina(View v){
+    public void elimina(View v) {
         String url = "https://humanservices21.tk/android/eliminar_movimiento.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -119,9 +120,9 @@ public class detailsCardView extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), "error" + error.toString(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
-            protected Map<String,String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new HashMap<>();
                 parametros.put("id", etidMovimiento.getText().toString());
                 return parametros;
@@ -131,16 +132,16 @@ public class detailsCardView extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private boolean valida(){
+    private boolean valida() {
         boolean res = true;
         String monto = etMonto.getText().toString();
         String conc = etConcepto.getText().toString();
         String obs = etDescripcion.getText().toString();
         String fecha = etFecha.getText().toString();
-        if(monto.isEmpty()) res = false;
-        if(conc.isEmpty()) res = false;
-        if(obs.isEmpty()) res = false;
-        if(fecha.isEmpty()) res = false;
+        if (monto.isEmpty()) res = false;
+        if (conc.isEmpty()) res = false;
+        if (obs.isEmpty()) res = false;
+        if (fecha.isEmpty()) res = false;
         return res;
     }
 }

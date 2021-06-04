@@ -29,29 +29,23 @@ public class MovimientosActivity extends AppCompatActivity {
     Context context;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user = firebaseAuth.getCurrentUser();
-    String uaid = firebaseAuth.getUid();
+    String uid = firebaseAuth.getUid();
     CarouselView carouselView;
-    int[] imagenes = {R.drawable.imagen5,R.drawable.imagen1,R.drawable.imagen2,R.drawable.imagen3,R.drawable.imagen4};
+    int[] imagenes = {R.drawable.imagen5, R.drawable.imagen1, R.drawable.imagen2, R.drawable.imagen3, R.drawable.imagen4};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movimientos);
-        /*String colorIngreso = "#5CB300";
-        String colorEgreso = "#FF0000";
-        String colorInconoIngreso = "#D1BE00";
-        String colorInconoEgreso = "#FF0000";
-        Integer iconoEgreso = R.drawable.ic_transit_enterexit_black_24dp;
-        Integer iconoIngreso =R.drawable.ic_paid_black_24dp;*/
-        elements=new ArrayList<>();
+        elements = new ArrayList<>();
 
-        ListAdapter listAdapter = new ListAdapter(elements,this);
+        ListAdapter listAdapter = new ListAdapter(elements, this);
         recyclerView = findViewById(R.id.listaMovimientos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapter);
-        context=getApplicationContext();
+        context = getApplicationContext();
         carouselView = (CarouselView) findViewById(R.id.carouselView);
         carouselView.setPageCount(imagenes.length);
         carouselView.setImageListener(imageListener);
@@ -67,9 +61,10 @@ public class MovimientosActivity extends AppCompatActivity {
 
 
 
-    /*private void llenar(){
-        String url = "https://humanservices21.tk/android/get_all.php?uaid="+uaid;
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, (response) ->{
+   private void llenar(){
+
+        String url = "https://humanservices21.tk/android/get_all.php?uaid=" + uid;
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, (response) -> {
             JSONObject jsonObject = null;
             //Toast.makeText(getApplicationContext(), response.length(), Toast.LENGTH_SHORT).show();
 
@@ -79,59 +74,26 @@ public class MovimientosActivity extends AppCompatActivity {
             String colorInconoEgreso = "#FF0000";
             Integer iconoEgreso = R.drawable.ic_transit_enterexit_black_24dp;
             Integer iconoIngreso =R.drawable.ic_paid_black_24dp;
-            elements=new ArrayList<>();
-            for (int i = 0; i < response.length(); i++){
-                try{
+            elements = new ArrayList<>();
+            for (int i = 0; i < response.length(); i++) {
+                try {
                     jsonObject = response.getJSONObject(i);
-                    if((jsonObject.getString("tipo" ) == "Ingreso") || (jsonObject.getString("tipo" ) == "ingreso") ){
-                        elements.add(new ListElement(jsonObject.getString("tipo"),jsonObject.getString("Concepto"),jsonObject.getString("fecha"),jsonObject.getString("Monto"),colorIngreso,colorInconoIngreso,iconoIngreso, jsonObject.getString("ID_II")));
-                    }else if(jsonObject.getString("tipo" ) == "Egreso" || jsonObject.getString("tipo" ) == "egreso"){
-                        elements.add(new ListElement(jsonObject.getString("tipo"),jsonObject.getString("Concepto"),jsonObject.getString("fecha"),jsonObject.getString("Monto"),colorEgreso,colorInconoEgreso,iconoEgreso, jsonObject.getString("ID_II")));
+                    if(jsonObject.getString("tipo").equals("Ingreso") || jsonObject.getString("tipo").equals("ingreso")){
+                        elements.add(new ListElement(jsonObject.getString("tipo"), jsonObject.getString("Concepto"), jsonObject.getString("fecha"), jsonObject.getString("Monto"), colorIngreso, colorInconoIngreso, iconoIngreso, jsonObject.getString("ID_II")));
+                    }else{
+                        elements.add(new ListElement(jsonObject.getString("tipo"), jsonObject.getString("Concepto"), jsonObject.getString("fecha"), jsonObject.getString("Monto"), colorEgreso, colorInconoEgreso, iconoEgreso, jsonObject.getString("ID_II")));
                     }
-                }catch (JSONException e){
-                    Toast.makeText(context, "error" + e.toString(), Toast.LENGTH_SHORT).show();
-                }
-            }
-            ListAdapter listAdapter = new ListAdapter(elements,getApplicationContext());
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-            recyclerView.setAdapter(listAdapter);
-        }, error -> {
-            Toast.makeText(getApplicationContext(), "error" + error.toString(), Toast.LENGTH_SHORT).show();
-        });
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(jsonArrayRequest);
-    }*/
-
-    // ----------FUNCION DE PRUEBA------------------------
-    private void llenar(){
-        String url = "https://humanservices21.tk/android/get_data.php?tipo=ingreso&uaid="+uaid;
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, (response) ->{
-            JSONObject jsonObject = null;
-            //Toast.makeText(getApplicationContext(), response.length(), Toast.LENGTH_SHORT).show();
-
-            String colorIngreso = "#5CB300";
-            //String colorEgreso = "#FF0000";
-            String colorInconoIngreso = "#D1BE00";
-            //String colorInconoEgreso = "#FF0000";
-            //Integer iconoEgreso = R.drawable.ic_transit_enterexit_black_24dp;
-            Integer iconoIngreso =R.drawable.ic_paid_black_24dp;
-            elements=new ArrayList<>();
-            for (int i = 0; i < response.length(); i++){
-                try{
-                    jsonObject = response.getJSONObject(i);
-                    elements.add(new ListElement(jsonObject.getString("tipo"),jsonObject.getString("Concepto"),jsonObject.getString("fecha"),jsonObject.getString("Monto"),colorIngreso,colorInconoIngreso,iconoIngreso, jsonObject.getString("ID_II")));
                     //elements.add(new ListElement("Egreso","Pago renta mensual","30/05/2021","$3500",colorEgreso,colorInconoEgreso,iconoEgreso,"2"));
 
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(), "error" + e.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
             //myadapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lista);
             //listView.setAdapter(myadapter);
-            ListAdapter listAdapter = new ListAdapter(elements,getApplicationContext());
+            ListAdapter listAdapter = new ListAdapter(elements,this);
             recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(listAdapter);
         }, error -> {
             Toast.makeText(getApplicationContext(), "error" + error.toString(), Toast.LENGTH_SHORT).show();
@@ -139,4 +101,5 @@ public class MovimientosActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(jsonArrayRequest);
     }
+
 }
